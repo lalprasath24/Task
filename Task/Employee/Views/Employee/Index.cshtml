@@ -1,0 +1,46 @@
+﻿@model List<Employee.Model.tblEmployee>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Employee Details</h2> 
+    
+ @Html.ActionLink("Create","Create","Employee")   
+    
+
+<table>
+    <tr>
+        <th>Employee Id</th>
+        <th>Employee Name</th>
+        <th>Email</th>
+        <th>DateOfBirth</th>
+        <th>Experience Level</th>
+        <th>Gender</th>
+        <th>Address</th>
+        <th>Operations</th>
+    </tr>
+    <tr>
+        @foreach (var item in Model)
+        {
+            <td>@item.Id</td>
+            <td>@item.name</td>
+            <td>@item.email</td>
+            <td>@item.DateOfBirth</td>
+            <td>@item.Experience</td>
+            <td>@item.gender</td>
+            <td>@item.address</td>
+            <td>
+            <a href="@Html.ActionLink("Edit","Edit","Employee",new {id=item.Id})"></a>
+            <a href="@Html.ActionLink("Delete","Delete","Employee",new {id=item.Id})"></a>
+            </td>
+
+
+         }
+    </tr>
+</table>
+
+
+
+
